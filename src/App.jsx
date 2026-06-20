@@ -59,6 +59,7 @@ function calcFields(e) {
     pctExpProfit: inv ? ((expPr / inv) * 100).toFixed(2) : "—",
     pctActProfit: inv ? ((actPr / inv) * 100).toFixed(2) : "—",
     totalRevenue: (inv + actPr).toFixed(0),
+    realisedProfit: (actPr - actCh).toFixed(0),
   };
 }
 
@@ -149,6 +150,7 @@ function EntryRow({ entry, onChange, onRemove, index }) {
         <ReadonlyField label="% Charges" value={calc.pctCharges!=="—"?calc.pctCharges+"%":"—"} color={C.red} />
         <ReadonlyField label="% Expected Profit" value={calc.pctExpProfit!=="—"?calc.pctExpProfit+"%":"—"} color={C.amber} />
         <ReadonlyField label="% Actual Profit" value={calc.pctActProfit!=="—"?calc.pctActProfit+"%":"—"} color={C.green} />
+        <ReadonlyField label="Realised Profit (UGX)" value={inv ? Number(calc.realisedProfit).toLocaleString() : "—"} color={C.green} />
         <ReadonlyField label="Total Revenue (UGX)" value={inv?Number(calc.totalRevenue).toLocaleString():"—"} color={C.gold} />
       </div>
     </div>
