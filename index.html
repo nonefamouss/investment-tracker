@@ -2,12 +2,74 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>investment-tracker</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#FF6B00" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- iOS PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Sylivester IST" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+
+    <!-- SEO -->
+    <meta name="description" content="Sylivester's Investment Strategy Tracker - Track UGX investments across Kenya and Congo" />
+    <title>Sylivester's Investment Strategy Tracker</title>
+
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { background: #1A0500; }
+      #splash {
+        position: fixed; inset: 0; z-index: 9999;
+        background: linear-gradient(135deg, #1A0500, #FF6B00);
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        transition: opacity 0.5s;
+      }
+      #splash.hide { opacity: 0; pointer-events: none; }
+      #splash-icon { font-size: 72px; margin-bottom: 20px; animation: pulse 1.5s infinite; }
+      #splash-title { color: #FFD000; font-size: 24px; font-weight: 900; font-family: system-ui; text-align: center; }
+      #splash-sub { color: rgba(255,248,240,0.7); font-size: 14px; margin-top: 8px; font-family: system-ui; }
+      #splash-bar { width: 200px; height: 4px; background: rgba(255,255,255,0.2); border-radius: 4px; margin-top: 32px; overflow: hidden; }
+      #splash-fill { height: 100%; background: #FFD000; border-radius: 4px; animation: load 1.8s ease forwards; }
+      @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.1)} }
+      @keyframes load { from{width:0%} to{width:100%} }
+    </style>
   </head>
   <body>
+    <!-- Splash Screen -->
+    <div id="splash">
+      <div id="splash-icon">📈</div>
+      <div id="splash-title">Sylivester's Investment<br/>Strategy Tracker</div>
+      <div id="splash-sub">Kenya · Congo · 2026–2032</div>
+      <div id="splash-bar"><div id="splash-fill"></div></div>
+    </div>
+
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+      // Hide splash after load
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          const splash = document.getElementById("splash");
+          if (splash) {
+            splash.classList.add("hide");
+            setTimeout(() => splash.remove(), 500);
+          }
+        }, 2000);
+      });
+
+      // Register service worker
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/sw.js").catch(() => {});
+        });
+      }
+    </script>
   </body>
 </html>
