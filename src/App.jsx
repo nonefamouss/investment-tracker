@@ -248,7 +248,7 @@ function HomePage({ data, onGoTracker, loading }) {
   return (
     <div style={{ minHeight:"100vh", padding:"0 0 80px" }}>
       <div style={{ textAlign:"center", padding:"60px 24px 40px", background:"linear-gradient(180deg,rgba(0,0,0,0.50) 0%,transparent 100%)" }}>
-        <img src="https://i.ibb.co/Y4R3DTst/icon-512-png.jpg" style={{ width:80, height:80, borderRadius:"50%", objectFit:"cover", marginBottom:20, boxShadow:0 0 40px ${C.orange}66 }} />
+        <img src="https://i.ibb.co/Y4R3DTst/icon-512-png.jpg" style={{ width:80, height:80, borderRadius:"50%", objectFit:"cover", marginBottom:20, boxShadow:`0 0 40px ${C.orange}66` }} />
         <h1 style={{ margin:0, fontSize:"clamp(26px,5vw,42px)", fontWeight:900, color:C.text, letterSpacing:-1, lineHeight:1.1 }}>
           Sylivester's Investment<br/>
           <span style={{ background:`linear-gradient(135deg,${C.orange},${C.gold})`, WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>Strategy Tracker</span>
