@@ -248,7 +248,7 @@ function HomePage({ data, onGoTracker, loading }) {
   return (
     <div style={{ minHeight:"100vh", padding:"0 0 80px" }}>
       <div style={{ textAlign:"center", padding:"60px 24px 40px", background:"linear-gradient(180deg,rgba(0,0,0,0.50) 0%,transparent 100%)" }}>
-        <div style={{ display:"inline-block", background:`linear-gradient(135deg,${C.orange},${C.gold})`, borderRadius:"50%", width:80, height:80, lineHeight:"80px", fontSize:40, marginBottom:20, boxShadow:`0 0 40px ${C.orange}66` }}>📈</div>
+        <img src="https://i.ibb.co/Y4R3DTst/icon-512-png.jpg" style={{ width:80, height:80, borderRadius:"50%", objectFit:"cover", marginBottom:20, boxShadow:0 0 40px ${C.orange}66 }} />
         <h1 style={{ margin:0, fontSize:"clamp(26px,5vw,42px)", fontWeight:900, color:C.text, letterSpacing:-1, lineHeight:1.1 }}>
           Sylivester's Investment<br/>
           <span style={{ background:`linear-gradient(135deg,${C.orange},${C.gold})`, WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>Strategy Tracker</span>
@@ -344,7 +344,7 @@ export default function App() {
     <div style={{ minHeight:"100vh", fontFamily:"'Segoe UI',system-ui,sans-serif", background:`linear-gradient(135deg,#1A0500 0%,#2D0E00 30%,#FF4500 70%,#FF8C00 100%)`, backgroundAttachment:"fixed", color:C.text }}>
       <nav style={{ position:"sticky", top:0, zIndex:500, background:"rgba(20,6,0,0.85)", backdropFilter:"blur(16px)", borderBottom:`2px solid ${C.orange}44`, display:"flex", alignItems:"center", justifyContent:"space-between", padding:"0 24px", height:58 }}>
         <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-          <span style={{ fontSize:22 }}>📈</span>
+          <img src="https://i.ibb.co/Y4R3DTst/icon-512-png.jpg" style={{ width:32, height:32, borderRadius:"50%", objectFit:"cover" }} />
           <span style={{ fontWeight:900, fontSize:16, color:C.gold }}>Sylivester IST</span>
         </div>
         <div style={{ display:"flex", gap:6 }}>
